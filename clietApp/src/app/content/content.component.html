@@ -1,0 +1,128 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Simple Tables</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Simple Tables</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header navbar-white navbar-light">
+          <!-- SEARCH FORM -->
+          <div class="form-inline ml-3">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="navbar-nav ml-auto">
+              <button type="submit" class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal-default">Agregar</button>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+<!--        MODAL THIS IS FORM-->
+        <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Default Modal</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input  [(ngModel)]="subject.name" type="text" class="form-control" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea [(ngModel)]="subject.description" type="textarea" class="form-control" placeholder="Description"></textarea>
+                </div>
+              </div>
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button (click)="save()" type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <div class="card-body table-responsive" >
+          <table class="table table-bordered table-striped elevation-3">
+            <thead class="badge-dark elevation-3">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let subject of subjects">
+              <td>{{subject.id}}</td>
+              <td>{{subject.name}}</td>
+              <td>{{subject.description}}</td>
+              <td class="text-center">
+<!--                <a class="btn btn-primary btn-sm" href="#">-->
+<!--                  <i class="fas fa-folder">-->
+<!--                  </i>-->
+<!--                  View-->
+<!--                </a>-->
+                <a class="btn btn-info btn-sm"  data-toggle="modal" data-target="#modal-default">
+                  <i class="fas fa-pencil-alt">
+                  </i>
+                  Edit
+                </a>
+                &nbsp;
+                <a class="btn btn-danger btn-sm" href="#">
+                  <i class="fas fa-trash">
+                  </i>
+                  Delete
+                </a>
+              </td>
+            </tr>
+            </tbody>
+<!--            <tfoot class="table table-head-fixed">-->
+<!--            <tr>-->
+<!--              <th>Rendering engine</th>-->
+<!--              <th>Browser</th>-->
+<!--              <th>Platform(s)</th>-->
+<!--              <th>Engine version</th>-->
+<!--              <th>CSS grade</th>-->
+<!--            </tr>-->
+<!--            </tfoot>-->
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </section>
+</div>
+<!--<footer class="main-footer">-->
+<!--  <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>-->
+<!--  All rights reserved.-->
+<!--  <div class="float-right d-none d-sm-inline-block">-->
+<!--    <b>Version</b> 3.0.0-->
+<!--  </div>-->
+<!--</footer>-->
